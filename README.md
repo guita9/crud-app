@@ -98,13 +98,21 @@ Once the container is ready:
   - Swagger UI: http://localhost:8000/docs
   - ReDoc: http://localhost:8000/redoc
 
-📡 Application Endpoints (API Usage)
-Method	Path	Description	Request Body Example	Response Example
-POST	/users/	Create a new user	{"name": "Jane Doe", "age": 30, "email": "jane@example.com"}	{"id": 1, "name": "Jane Doe", "age": 30, "email": "..."}
-GET	/users/	Get all users	None	[{"id": 1, "name": "Jane", "age": 30, ...}]
-GET	/users/{user_id}	Get user by ID	None	{"id": 1, "name": "Jane", "age": 30, "email": "..."}
-PUT	/users/{user_id}	Update user by ID	{"name": "Jane D.", "age": 31, "email": "jane.d@example.com"}	{"id": 1, "name": "Jane D.", "age": 31, "email": "..."}
-DELETE	/users/{user_id}	Delete user by ID	None	{"message": "User deleted successfully"}
+## 📡 Application Endpoints (API Usage)
+
+| Method | Path              | Description        | Request Body Example                                           | Response Example                                             |
+|--------|-------------------|--------------------|----------------------------------------------------------------|--------------------------------------------------------------|
+| POST   | `/users/`         | Create a new user  | `{"name": "Jane Doe", "age": 30, "email": "jane@example.com"}` | `{"id": 1, "name": "Jane Doe", "age": 30, "email": "..."}`   |
+| GET    | `/users/`         | Get all users      | None                                                           | `[{"id": 1, "name": "Jane", "age": 30, ...}]`                |
+| GET    | `/users/{user_id}`| Get user by ID     | None                                                           | `{"id": 1, "name": "Jane", "age": 30, "email": "..."}`       |
+| PUT    | `/users/{user_id}`| Update user by ID  | `{"name": "Jane D.", "age": 31, "email": "jane.d@example.com"}`| `{"id": 1, "name": "Jane D.", "age": 31, "email": "..."}`    |
+| DELETE | `/users/{user_id}`| Delete user by ID  | None                                                           | `{"message": "User deleted successfully"}`                   |
+
+> You can test these endpoints using:
+> - Swagger UI: [http://localhost:8000/docs](http://localhost:8000/docs)  
+> - ReDoc: [http://localhost:8000/redoc](http://localhost:8000/redoc)  
+> - Or tools like **Postman**, **Insomnia**, or `curl`
+
 
 👉 Test via /docs or tools like Postman, Insomnia, or curl.
 🗂 Project Structure
