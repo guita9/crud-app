@@ -54,12 +54,12 @@ To eliminate “it works on my machine” problems:
 
 ### Making it Easy to Start
 
-- `postCreateCommand`: Installs Python dependencies automatically.
-- `forwardPorts`: Forwards port `8000` so app is available at [http://localhost:8000](http://localhost:8000).
+- `postCreateCommand`: In devcontainer.json file, to make the developer's life even easier, I added  "postCreateCommand": "pip install -r requirements.txt". This command automatically runs inside the development container the first time it's created. This means you don't even have to manually install Python packages; the environment is ready to code as soon as you open the project in VS Code.
+- `forwardPorts`: Forwards port `8000` from the dev container to our local machine so app is available at [http://localhost:8000](http://localhost:8000).
 
 ### Database Management
 
-- PostgreSQL runs as a separate service.
+- PostgreSQL runs as a separate service or container.
 - Uses environment variables (`DATABASE_URL`) for clean configuration.
 - Includes DB health checks & persistent volumes.
 
