@@ -50,7 +50,7 @@ To eliminate “it works on my machine” problems:
 
 - **Docker**: Packages everything into an image.
 - **Docker Compose**: Manages app + db containers together.
-- **VS Code Dev Containers**: Provides a preconfigured environment for all team members.
+- **VS Code Dev Containers**:  leverages Docker Compose. Instead of installing Python, FastAPI, and PostgreSQL directly on your computer, VS Code connects into a running Docker container (our app service). This means your local machine only needs Docker and VS Code – everything else is managed inside the container. This eliminates setup headaches and ensures that what works in development will work when deployed.
 
 ### Making it Easy to Start
 
