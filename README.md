@@ -111,7 +111,7 @@ Once the container is ready:
 > You can test these endpoints using:
 > - Swagger UI: [http://localhost:8000/docs](http://localhost:8000/docs)  
 > - ReDoc: [http://localhost:8000/redoc](http://localhost:8000/redoc)  
-> - Or tools like **Postman**, **Insomnia**, or `curl`
+> - Or tools like **Postman** or `curl`
 
 
 👉 Test via /docs or tools like Postman, Insomnia, or curl.
