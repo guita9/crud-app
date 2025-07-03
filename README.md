@@ -83,16 +83,13 @@ git clone https://github.com/guita9/crud-app.git
 cd fastapi-crud-app
 ```
 
-Opening in VS Code Dev Containers
+### Opening in VS Code Dev Containers
 
-    Open VS Code → File > Open Folder → Select the project folder.
-
-    Click "Reopen in Container"
-    Or use: Ctrl+Shift+P → “Remote-Containers: Reopen in Container”.
-
-    Wait for the container to build and set up (first time only).
-
-    You’re now coding inside the container – all dependencies are pre-installed.
+  - Open VS Code → File > Open Folder → Select the project folder.
+  - Click "Reopen in Container"
+  - Or use: Ctrl+Shift+P → “Remote-Containers: Reopen in Container”.
+  - Wait for the container to build and set up (first time only).
+  - You’re now coding inside the container – all dependencies are pre-installed.
 
 🌐 Accessing the Application
 
