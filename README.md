@@ -14,12 +14,12 @@ This project demonstrates a simple yet robust setup for a web application built 
   - [Database Management](#database-management)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
+  - [Core Components Explained](#core-components-explained)
   - [Cloning the Repository](#cloning-the-repository)
   - [Opening in VS Code Dev Containers](#opening-in-vs-code-dev-containers)
   - [Accessing the Application](#accessing-the-application)
 - [Application Endpoints (API Usage)](#application-endpoints-api-usage)
 - [Project Structure](#project-structure)
-- [Core Components Explained](#core-components-explained)
 - [Future Improvements](#future-improvements)
 
 ---
@@ -82,53 +82,6 @@ Make sure you have the following installed:
 git clone https://github.com/guita9/crud-app.git
 cd fastapi-crud-app
 ```
-
-### Opening in VS Code Dev Containers
-
-  - Open VS Code → File > Open Folder → Select the project folder.
-  - Click "Reopen in Container"
-  - Or use: Ctrl+Shift+P → “Remote-Containers: Reopen in Container”.
-  - Wait for the container to build and set up (first time only).
-  - You’re now coding inside the container – all dependencies are pre-installed.
-
-### Accessing the Application
-
-Once the container is ready:
-  - App auto-starts at http://localhost:8000
-  - Swagger UI: http://localhost:8000/docs
-  - ReDoc: http://localhost:8000/redoc
-
-## 📡 Application Endpoints (API Usage)
-
-| Method | Path              | Description        | Request Body Example                                           | Response Example                                             |
-|--------|-------------------|--------------------|----------------------------------------------------------------|--------------------------------------------------------------|
-| POST   | `/users/`         | Create a new user  | `{"name": "Jane Doe", "age": 30, "email": "jane@example.com"}` | `{"id": 1, "name": "Jane Doe", "age": 30, "email": "..."}`   |
-| GET    | `/users/`         | Get all users      | None                                                           | `[{"id": 1, "name": "Jane", "age": 30, ...}]`                |
-| GET    | `/users/{user_id}`| Get user by ID     | None                                                           | `{"id": 1, "name": "Jane", "age": 30, "email": "..."}`       |
-| PUT    | `/users/{user_id}`| Update user by ID  | `{"name": "Jane D.", "age": 31, "email": "jane.d@example.com"}`| `{"id": 1, "name": "Jane D.", "age": 31, "email": "..."}`    |
-| DELETE | `/users/{user_id}`| Delete user by ID  | None                                                           | `{"message": "User deleted successfully"}`                   |
-
-> You can test these endpoints using:
-> - Swagger UI: [http://localhost:8000/docs](http://localhost:8000/docs)  
-> - ReDoc: [http://localhost:8000/redoc](http://localhost:8000/redoc)  
-> - Or tools like **Postman** or `curl`
-
-
-## 🗂 Project Structure
-``` bash
-fastapi-crud-app/
-├── .devcontainer/ # VS Code dev container setup
-│ └── devcontainer.json # Dev container configuration
-├── app/ # Core FastAPI application
-│ ├── database.py # DB connection and session setup
-│ ├── main.py # API routes and app instance
-│ ├── models.py # SQLAlchemy models
-│ └── schemas.py # Pydantic schemas for validation
-├── .gitignore # Excludes files from pushing to repo
-├── docker-compose.yml # Compose config for app + PostgreSQL
-├── Dockerfile # Builds the FastAPI app container
-└── requirements.txt # Python dependencies
-```
 ### Core Components Explained
 
 FastAPI Application (app/ directory)
@@ -188,3 +141,51 @@ This special file tells VS Code how to set up your development environment insid
   - postCreateCommand: A command that runs after the container is built for the first time. In your case, it automatically installs all your Python dependencies from requirements.txt, so your environment is ready to use without manual steps.
 
   - remoteEnv: Sets environment variables that are available inside the dev container. Here, DATABASE_URL is set, ensuring your application can connect to the database within the Docker network.
+
+### Opening in VS Code Dev Containers
+
+  - Open VS Code → File > Open Folder → Select the project folder.
+  - Click "Reopen in Container"
+  - Or use: Ctrl+Shift+P → “Remote-Containers: Reopen in Container”.
+  - Wait for the container to build and set up (first time only).
+  - You’re now coding inside the container – all dependencies are pre-installed.
+
+### Accessing the Application
+
+Once the container is ready:
+  - App auto-starts at http://localhost:8000
+  - Swagger UI: http://localhost:8000/docs
+  - ReDoc: http://localhost:8000/redoc
+
+## 📡 Application Endpoints (API Usage)
+
+| Method | Path              | Description        | Request Body Example                                           | Response Example                                             |
+|--------|-------------------|--------------------|----------------------------------------------------------------|--------------------------------------------------------------|
+| POST   | `/users/`         | Create a new user  | `{"name": "Jane Doe", "age": 30, "email": "jane@example.com"}` | `{"id": 1, "name": "Jane Doe", "age": 30, "email": "..."}`   |
+| GET    | `/users/`         | Get all users      | None                                                           | `[{"id": 1, "name": "Jane", "age": 30, ...}]`                |
+| GET    | `/users/{user_id}`| Get user by ID     | None                                                           | `{"id": 1, "name": "Jane", "age": 30, "email": "..."}`       |
+| PUT    | `/users/{user_id}`| Update user by ID  | `{"name": "Jane D.", "age": 31, "email": "jane.d@example.com"}`| `{"id": 1, "name": "Jane D.", "age": 31, "email": "..."}`    |
+| DELETE | `/users/{user_id}`| Delete user by ID  | None                                                           | `{"message": "User deleted successfully"}`                   |
+
+> You can test these endpoints using:
+> - Swagger UI: [http://localhost:8000/docs](http://localhost:8000/docs)  
+> - ReDoc: [http://localhost:8000/redoc](http://localhost:8000/redoc)  
+> - Or tools like **Postman** or `curl`
+
+
+## 🗂 Project Structure
+``` bash
+fastapi-crud-app/
+├── .devcontainer/ # VS Code dev container setup
+│ └── devcontainer.json # Dev container configuration
+├── app/ # Core FastAPI application
+│ ├── database.py # DB connection and session setup
+│ ├── main.py # API routes and app instance
+│ ├── models.py # SQLAlchemy models
+│ └── schemas.py # Pydantic schemas for validation
+├── .gitignore # Excludes files from pushing to repo
+├── docker-compose.yml # Compose config for app + PostgreSQL
+├── Dockerfile # Builds the FastAPI app container
+└── requirements.txt # Python dependencies
+```
+
