@@ -114,21 +114,20 @@ Once the container is ready:
 > - Or tools like **Postman** or `curl`
 
 
-👉 Test via /docs or tools like Postman, Insomnia, or curl.
-🗂 Project Structure
+## 🗂 Project Structure
 
 fastapi-crud-app/
-├── .devcontainer/
-│   └── devcontainer.json         # Dev container setup
-├── app/
-│   ├── database.py               # DB connection and session
-│   ├── main.py                   # API routes
-│   ├── models.py                 # SQLAlchemy models
-│   └── schemas.py                # Pydantic schemas
-├── .dockerignore
-├── docker-compose.yml           # Compose config for app + db
-├── Dockerfile                   # Builds FastAPI app container
-└── requirements.txt             # Python dependencies
+├── .devcontainer/ # VS Code dev container setup
+│ └── devcontainer.json # Dev container configuration
+├── app/ # Core FastAPI application
+│ ├── database.py # DB connection and session setup
+│ ├── main.py # API routes and app instance
+│ ├── models.py # SQLAlchemy models
+│ └── schemas.py # Pydantic schemas for validation
+├── .dockerignore # Excludes files from Docker build context
+├── docker-compose.yml # Compose config for app + PostgreSQL
+├── Dockerfile # Builds the FastAPI app container
+└── requirements.txt # Python dependencies
 
 🔍 Core Components Explained
 app/ Directory
