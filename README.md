@@ -10,11 +10,11 @@ This project demonstrates a simple yet robust setup for a web application built 
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Cloning the Repository](#cloning-the-repository)
+  - [Project Structure](#project-structure)
   - [Core Components Explained](#core-components-explained)
   - [Opening in VS Code Dev Containers](#opening-in-vs-code-dev-containers)
   - [Accessing the Application](#accessing-the-application)
 - [Application Endpoints (API Usage)](#application-endpoints-api-usage)
-- [Project Structure](#project-structure)
 - [Future Improvements](#future-improvements)
 - [Why This Setup? (Thought Process)](#why-this-setup-thought-process)
   - [Choosing Technologies](#choosing-technologies)
@@ -54,6 +54,23 @@ Make sure you have the following installed:
 git clone https://github.com/guita9/crud-app.git
 cd fastapi-crud-app
 ```
+
+## 🗂 Project Structure
+``` bash
+fastapi-crud-app/
+├── .devcontainer/ # VS Code dev container setup
+│ └── devcontainer.json # Dev container configuration
+├── app/ # Core FastAPI application
+│ ├── database.py # DB connection and session setup
+│ ├── main.py # API routes and app instance
+│ ├── models.py # SQLAlchemy models
+│ └── schemas.py # Pydantic schemas for validation
+├── .gitignore # Excludes files from pushing to repo
+├── docker-compose.yml # Compose config for app + PostgreSQL
+├── Dockerfile # Builds the FastAPI app container
+└── requirements.txt # Python dependencies
+```
+
 ### Core Components Explained
 
 FastAPI Application (app/ directory)
@@ -145,21 +162,6 @@ Once the container is ready:
 > - Or tools like **Postman** or `curl`
 
 
-## 🗂 Project Structure
-``` bash
-fastapi-crud-app/
-├── .devcontainer/ # VS Code dev container setup
-│ └── devcontainer.json # Dev container configuration
-├── app/ # Core FastAPI application
-│ ├── database.py # DB connection and session setup
-│ ├── main.py # API routes and app instance
-│ ├── models.py # SQLAlchemy models
-│ └── schemas.py # Pydantic schemas for validation
-├── .gitignore # Excludes files from pushing to repo
-├── docker-compose.yml # Compose config for app + PostgreSQL
-├── Dockerfile # Builds the FastAPI app container
-└── requirements.txt # Python dependencies
-```
 
 ## 🤔 Why This Setup? (Thought Process)
 
