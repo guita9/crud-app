@@ -79,5 +79,5 @@ Make sure you have the following installed:
 ### Cloning the Repository
 
 ```bash
-git clone <your-github-repo-url>
+git clone https://github.com/guita9/crud-app.git
 cd fastapi-crud-app
