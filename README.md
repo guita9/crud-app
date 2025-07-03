@@ -91,15 +91,12 @@ cd fastapi-crud-app
   - Wait for the container to build and set up (first time only).
   - You’re now coding inside the container – all dependencies are pre-installed.
 
-🌐 Accessing the Application
+### Accessing the Application
 
 Once the container is ready:
-
-    App auto-starts at http://localhost:8000
-
-    Swagger UI: http://localhost:8000/docs
-
-    ReDoc: http://localhost:8000/redoc
+  - App auto-starts at http://localhost:8000
+  - Swagger UI: http://localhost:8000/docs
+  - ReDoc: http://localhost:8000/redoc
 
 📡 Application Endpoints (API Usage)
 Method	Path	Description	Request Body Example	Response Example
