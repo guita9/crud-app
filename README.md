@@ -15,7 +15,6 @@ This project demonstrates a simple yet robust setup for a web application built 
   - [Opening in VS Code Dev Containers](#opening-in-vs-code-dev-containers)
   - [Accessing the Application](#accessing-the-application)
 - [Application Endpoints (API Usage)](#application-endpoints-api-usage)
-- [Future Improvements](#future-improvements)
 - [Why This Setup? (Thought Process)](#why-this-setup-thought-process)
   - [Choosing Technologies](#choosing-technologies)
   - [Ensuring Consistency (Dev Containers & Docker)](#ensuring-consistency-dev-containers--docker)
