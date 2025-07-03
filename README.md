@@ -75,13 +75,13 @@ fastapi-crud-app/
 
 FastAPI Application (app/ directory)
 
-  - main.py: This is the main file for your FastAPI application. It's where the FastAPI instance is created and all the API endpoints (routes) like /users/ for creating, reading, updating, and deleting users are defined. It uses Depends to inject a database session into each endpoint, making sure database operations are handled correctly.
+  - main.py: This is the main file for FastAPI application. It's where the FastAPI instance is created and all the API endpoints (routes) like /users/ for creating, reading, updating, and deleting users are defined. It uses Depends to inject a database session into each endpoint, making sure database operations are handled correctly.
 
-  - models.py: This file defines the structure of your database tables using SQLAlchemy. For example, the User class here describes what a "user" record looks like in your PostgreSQL database (it has an ID, name, age, and email).
+  - models.py: This file defines the structure of database tables using SQLAlchemy. For example, the User class here describes what a "user" record looks like in PostgreSQL database (it has an ID, name, age, and email).
 
-  - schemas.py: This file uses Pydantic to define how data should look when it comes in or goes out of your API. It ensures that the data you receive (e.g., when creating a user) has the correct fields and types, and that the data you send back is well-structured. This helps prevent errors and makes your API predictable.
+  - schemas.py: This file uses Pydantic to define how data should look when it comes in or goes out of your API. It ensures that the data receive (e.g., when creating a user) has the correct fields and types, and that the data you send back is well-structured. This helps prevent errors and makes API predictable.
 
-  - database.py: This file handles the connection to your PostgreSQL database. It sets up the "engine" (the actual connection), a "sessionmaker" (to create individual conversation sessions with the database), and a "Base" for your models. Crucially, it gets the database connection details from an environment variable (DATABASE_URL), which is a good practice for security and flexibility.
+  - database.py: This file handles the connection to PostgreSQL database. It sets up the "engine" (the actual connection), a "sessionmaker" (to create individual conversation sessions with the database), and a "Base" for models. Crucially, it gets the database connection details from an environment variable (DATABASE_URL), which is a good practice for security and flexibility.
 
 Docker Compose (docker-compose.yml)
 
@@ -89,13 +89,13 @@ This file is like a blueprint for running multiple Docker containers together.
 
   - services: Defines two main services:
 
-  - db: This is your PostgreSQL database. It specifies which PostgreSQL image to use (postgres:15), sets up the database name, username, and password using environment variables, and creates a pgdata volume to store your database's actual data persistently (so you don't lose it when the container stops). It also includes a healthcheck to ensure the database is fully ready before the application tries to connect.
+  - db: This is PostgreSQL database. It specifies which PostgreSQL image to use (postgres:15), sets up the database name, username, and password using environment variables, and creates a pgdata volume to store database's actual data persistently (so you don't lose it when the container stops). It also includes a healthcheck to ensure the database is fully ready before the application tries to connect.
 
-  - app: This is your FastAPI application. It tells Docker to build this service using your Dockerfile in the current directory (build: .). It depends_on the db service, meaning it won't start until the database is healthy. It also sets the DATABASE_URL environment variable for your application to connect to the db service. ports: "8000:8000" means that port 8000 inside the container is made available on port 8000 of your local machine. The volumes: .:/app line is important for development: it synchronizes your local project folder with the /app folder inside the container, so any changes you make to your code on your computer are immediately reflected in the running application inside the container.
+  - app: This is FastAPI application. It tells Docker to build this service using Dockerfile in the current directory (build: .). It depends_on the db service, meaning it won't start until the database is healthy. It also sets the DATABASE_URL environment variable for your application to connect to the db service. ports: "8000:8000" means that port 8000 inside the container is made available on port 8000 of local machine. The volumes: .:/app line is important for development: it synchronizes your local project folder with the /app folder inside the container, so any changes on code are immediately reflected in the running application inside the container.
 
 Dockerfile
 
-This file contains a set of instructions for building the image for your FastAPI application. Think of an image as a lightweight, standalone, executable package that includes everything needed to run a piece of software.
+This file contains a set of instructions for building the image for FastAPI application. Think of an image as a lightweight, standalone, executable package that includes everything needed to run a piece of software.
 ``` bash 
     FROM python:3.11-slim: Starts with a slim version of Python 3.11. "Slim" images are smaller and more secure because they contain only the essential components, which is great for production.
 
