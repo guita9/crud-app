@@ -81,3 +81,117 @@ Make sure you have the following installed:
 ```bash
 git clone https://github.com/guita9/crud-app.git
 cd fastapi-crud-app
+
+Opening in VS Code Dev Containers
+
+    Open VS Code → File > Open Folder → Select the project folder.
+
+    Click "Reopen in Container"
+    Or use: Ctrl+Shift+P → “Remote-Containers: Reopen in Container”.
+
+    Wait for the container to build and set up (first time only).
+
+    You’re now coding inside the container – all dependencies are pre-installed.
+
+🌐 Accessing the Application
+
+Once the container is ready:
+
+    App auto-starts at http://localhost:8000
+
+    Swagger UI: http://localhost:8000/docs
+
+    ReDoc: http://localhost:8000/redoc
+
+📡 Application Endpoints (API Usage)
+Method	Path	Description	Request Body Example	Response Example
+POST	/users/	Create a new user	{"name": "Jane Doe", "age": 30, "email": "jane@example.com"}	{"id": 1, "name": "Jane Doe", "age": 30, "email": "..."}
+GET	/users/	Get all users	None	[{"id": 1, "name": "Jane", "age": 30, ...}]
+GET	/users/{user_id}	Get user by ID	None	{"id": 1, "name": "Jane", "age": 30, "email": "..."}
+PUT	/users/{user_id}	Update user by ID	{"name": "Jane D.", "age": 31, "email": "jane.d@example.com"}	{"id": 1, "name": "Jane D.", "age": 31, "email": "..."}
+DELETE	/users/{user_id}	Delete user by ID	None	{"message": "User deleted successfully"}
+
+👉 Test via /docs or tools like Postman, Insomnia, or curl.
+🗂 Project Structure
+
+fastapi-crud-app/
+├── .devcontainer/
+│   └── devcontainer.json         # Dev container setup
+├── app/
+│   ├── database.py               # DB connection and session
+│   ├── main.py                   # API routes
+│   ├── models.py                 # SQLAlchemy models
+│   └── schemas.py                # Pydantic schemas
+├── .dockerignore
+├── docker-compose.yml           # Compose config for app + db
+├── Dockerfile                   # Builds FastAPI app container
+└── requirements.txt             # Python dependencies
+
+🔍 Core Components Explained
+app/ Directory
+
+    main.py – FastAPI routes and logic.
+
+    models.py – SQLAlchemy DB model for User.
+
+    schemas.py – Pydantic schemas for request/response validation.
+
+    database.py – DB engine and session via DATABASE_URL.
+
+docker-compose.yml
+
+    db service:
+
+        Uses postgres:15
+
+        Sets up volume pgdata for persistence
+
+        Includes a healthcheck to delay app start until DB is ready
+
+    app service:
+
+        Built via Dockerfile
+
+        Depends on db
+
+        Forwards port 8000
+
+Dockerfile
+
+FROM python:3.11-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY ./app ./app
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+
+.devcontainer/devcontainer.json
+
+VS Code containerized dev environment config:
+
+    Installs Python & Docker extensions.
+
+    Auto-runs pip install -r requirements.txt after first build.
+
+    Forwards port 8000.
+
+    Sets DATABASE_URL for app config.
+
+🔮 Future Improvements
+
+    ✅ Add authentication/authorization
+
+    ✅ Improve error handling and validation
+
+    ✅ Add unit & integration tests
+
+    ✅ Logging & monitoring setup
+
+    ✅ CI/CD via GitHub Actions or Jenkins
+
+    ✅ DB migrations using Alembic
+
+    ✅ Harden Docker security (non-root user, multi-stage builds)
+
+    ✅ Integrate Prometheus/Grafana for observability
+
