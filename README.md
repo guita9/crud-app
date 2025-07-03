@@ -115,7 +115,7 @@ Once the container is ready:
 
 
 ## 🗂 Project Structure
-
+``` bash
 fastapi-crud-app/
 ├── .devcontainer/ # VS Code dev container setup
 │ └── devcontainer.json # Dev container configuration
@@ -128,6 +128,7 @@ fastapi-crud-app/
 ├── docker-compose.yml # Compose config for app + PostgreSQL
 ├── Dockerfile # Builds the FastAPI app container
 └── requirements.txt # Python dependencies
+```
 
 🔍 Core Components Explained
 app/ Directory
