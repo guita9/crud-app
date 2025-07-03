@@ -124,7 +124,7 @@ fastapi-crud-app/
 │ ├── main.py # API routes and app instance
 │ ├── models.py # SQLAlchemy models
 │ └── schemas.py # Pydantic schemas for validation
-├── .dockerignore # Excludes files from Docker build context
+├── .gitignore # Excludes files from pushing to repo
 ├── docker-compose.yml # Compose config for app + PostgreSQL
 ├── Dockerfile # Builds the FastAPI app container
 └── requirements.txt # Python dependencies
