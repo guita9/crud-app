@@ -81,6 +81,7 @@ Make sure you have the following installed:
 ```bash
 git clone https://github.com/guita9/crud-app.git
 cd fastapi-crud-app
+```
 
 Opening in VS Code Dev Containers
 
